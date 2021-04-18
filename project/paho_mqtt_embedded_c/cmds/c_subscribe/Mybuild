@@ -1,0 +1,13 @@
+package project.paho_mqtt_embedded_c.cmd
+
+@AutoCmd
+@Cmd(name="mqtt_embedded_c_subscribe", help="", man="")
+@BuildDepends(third_party.mqtt.paho_mqtt_embedded_c.libpaho_embed_mqtt3c)
+@Build(stage=2)
+module mqtt_embedded_c_subscribe {
+
+	@IncludePath("$(CONF_DIR)")
+	source "stdoutsub.c"
+
+	@NoRuntime depends third_party.mqtt.paho_mqtt_embedded_c.libpaho_embed_mqtt3c
+}
