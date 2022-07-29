@@ -1,0 +1,51 @@
+diff -aur Fast-CDR-1.0.24/include/fastcdr/Cdr.h ../build/extbld/third_party/lib/libfastcdr/Fast-CDR-1.0.24/include/fastcdr/Cdr.h
+--- Fast-CDR-1.0.24/include/fastcdr/Cdr.h	2022-03-15 14:53:38.000000000 +0300
++++ ../build/extbld/third_party/lib/libfastcdr/Fast-CDR-1.0.24/include/fastcdr/Cdr.h	2022-07-29 16:20:40.710182947 +0300
+@@ -24,11 +24,11 @@
+ #include <map>
+ #include <iostream>
+ 
+-#if !__APPLE__ && !__FreeBSD__ && !__VXWORKS__
++#if !__APPLE__ && !__FreeBSD__ && !__VXWORKS__ && !__EMBOX__
+ #include <malloc.h>
+ #else
+ #include <stdlib.h>
+-#endif // if !__APPLE__ && !__FreeBSD__ && !__VXWORKS__
++#endif // if !__APPLE__ && !__FreeBSD__ && !__VXWORKS__ && !__EMBOX__
+ 
+ #if HAVE_CXX0X
+ #include <array>
+diff -aur Fast-CDR-1.0.24/include/fastcdr/FastCdr.h ../build/extbld/third_party/lib/libfastcdr/Fast-CDR-1.0.24/include/fastcdr/FastCdr.h
+--- Fast-CDR-1.0.24/include/fastcdr/FastCdr.h	2022-03-15 14:53:38.000000000 +0300
++++ ../build/extbld/third_party/lib/libfastcdr/Fast-CDR-1.0.24/include/fastcdr/FastCdr.h	2022-07-29 16:20:32.909885087 +0300
+@@ -22,11 +22,11 @@
+ #include <string>
+ #include <vector>
+ 
+-#if !__APPLE__ && !__FreeBSD__ && !__VXWORKS__
++#if !__APPLE__ && !__FreeBSD__ && !__VXWORKS__ && !__EMBOX__
+ #include <malloc.h>
+ #else
+ #include <stdlib.h>
+-#endif // if !__APPLE__ && !__FreeBSD__ && !__VXWORKS__
++#endif // if !__APPLE__ && !__FreeBSD__ && !__VXWORKS__ && !__EMBOX__
+ 
+ #if HAVE_CXX0X
+ #include <array>
+diff -aur Fast-CDR-1.0.24/src/cpp/FastBuffer.cpp ../build/extbld/third_party/lib/libfastcdr/Fast-CDR-1.0.24/src/cpp/FastBuffer.cpp
+--- Fast-CDR-1.0.24/src/cpp/FastBuffer.cpp	2022-03-15 14:53:38.000000000 +0300
++++ ../build/extbld/third_party/lib/libfastcdr/Fast-CDR-1.0.24/src/cpp/FastBuffer.cpp	2022-07-29 16:20:58.686862862 +0300
+@@ -14,11 +14,11 @@
+ 
+ #include <fastcdr/FastBuffer.h>
+ 
+-#if !__APPLE__ && !__FreeBSD__ && !__VXWORKS__
++#if !__APPLE__ && !__FreeBSD__ && !__VXWORKS__ && !__EMBOX__
+ #include <malloc.h>
+ #else
+ #include <stdlib.h>
+-#endif // if !__APPLE__ && !__FreeBSD__ && !__VXWORKS__
++#endif // !__APPLE__ && !__FreeBSD__ && !__VXWORKS__ && !__EMBOX__
+ 
+ #define BUFFER_START_LENGTH 200
+ 
