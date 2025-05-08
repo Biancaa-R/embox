@@ -35,6 +35,9 @@ int sigaction(int sig, const struct sigaction *restrict act,
 	if (!check_range(sig, 0, _SIG_TOTAL))
 		return SET_ERRNO(EINVAL);
 
+	if (sig == SIGKILL || sig == SIGSTOP)
+		return SET_ERRNO(EINVAL);
+
 	if (oact) {
 		sighandler_t ofunc = sig_table[sig].sa_handler;
 		memcpy(oact, &sig_table[sig], sizeof(struct sigaction));
