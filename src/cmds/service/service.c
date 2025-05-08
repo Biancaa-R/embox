@@ -15,6 +15,7 @@
 #include <stdlib.h>
 #include <sys/types.h>
 #include <sys/resource.h>
+#include <sys/wait.h>
 #include <signal.h>
 
 #include <lib/libds/dlist.h>
@@ -87,8 +88,15 @@ static void service_add(const char *name, pid_t service_pid) {
 
 /* Delete service node from running services list */
 static void service_delete(struct service_list *service_node) {
+    int status;
     printf("Killing the process:");
-    int kill_result = kill(service_node->pid, SIGKILL);
+    int kill_result = kill(service_node->pid, SIGTERM);
+    sleep(5);
+    waitpid(service_node->pid, &status, WNOHANG);
+    if (!WIFEXITED(status)) {
+        printf("SIGKILL!!!!!!\n");
+        kill_result = kill(service_node->pid, SIGKILL);
+    }
     if (kill_result != 0) {
         printf("error: kill process exited with code %d\n", kill_result);
         printf("Service is probably shut down. Removing from the list anyway\n");

@@ -1,0 +1,21 @@
+package embox.cmd
+
+@AutoCmd
+@Cmd(name = "test_signal",
+	help = "may",
+	man = '''
+		NAME
+			service - Control services (like commands running in background)
+		SYNOPSIS
+			service NAME
+		DESCRIPTION
+			Starts specified services
+		OPTIONS
+			-h
+				Shows usage
+		AUTHORS
+			Alex Kalmuk
+	''')
+module test_signal {
+	source "test_signal.c"	
+}
