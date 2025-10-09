@@ -1,0 +1,10 @@
+package embox.driver.clk.baikal.baikal_u
+
+module cru {
+	option string log_level="LOG_NONE"
+
+	source "bmcu_cru.c"
+
+	@IncludeExport(path="drivers")
+	source "bmcu_cru.h"
+}
