@@ -10,8 +10,10 @@
 
 
 extern void board_clocks_init(void);
+extern void BSP_UART_Init(void);
 
 void platform_init(void) {
 	board_clocks_init();
+	BSP_UART_Init();
 
 }

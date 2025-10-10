@@ -4,6 +4,8 @@ module platform_init extends platform.platform_init {
 	source "platform_init.c"
 	source "evu_ba_clk_init.c"
 
+	source "evu_ba_bsp_uart_init.c"
+
 	@IncludeExport(path="drivers/")
 	source "bmcu_def.h", "bmcu_u.h", "bmcu_common.h"
 
