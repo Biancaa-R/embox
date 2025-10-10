@@ -187,8 +187,8 @@ cppflags := \
 	-MMD -MP \
 	$(CPPFLAGS)
 
-override CPPFLAGS = $(cppflags)
-EMBOX_EXPORT_CPPFLAGS = $(filter-out -D%" -D%',$(cppflags))
+override CPPFLAGS := $(cppflags)
+EMBOX_EXPORT_CPPFLAGS := $(filter-out -D%" -D%',$(cppflags))
 
 override COMMON_FLAGS := -pipe
 

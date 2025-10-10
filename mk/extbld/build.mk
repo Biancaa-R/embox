@@ -21,7 +21,8 @@ endif
 # Return:
 #  Option value
 define option_get
-$(shell echo OPTION_GET\($(1),$(2)\) | $(EMBOX_GCC) $(EMBOX_MODULE_CPPFLAGS) \
+$(shell echo OPTION_GET\($(1),$(2)\) | \
+	EMBOX_CROSS_COMPILE=$(EMBOX_CROSS_COMPILE) $(EMBOX_GCC) $(EMBOX_MODULE_CPPFLAGS) \
 	-include $(SRC_DIR)/include/framework/mod/options.h -P -E -)
 endef
 
@@ -30,7 +31,8 @@ endef
 # Return:
 #  Macro value if defined or empty string
 define macro_get
-$(subst $(1),,$(shell echo $(1) | $(EMBOX_GCC) -P -E -))
+$(subst $(1),,$(shell echo $(1) | \
+	EMBOX_CROSS_COMPILE=$(EMBOX_CROSS_COMPILE) $(EMBOX_GCC) -P -E -))
 endef
 
 PKG_SOURCE_DIR    = $(filter-out %/install,$(wildcard $(MOD_BUILD_DIR)/*))
