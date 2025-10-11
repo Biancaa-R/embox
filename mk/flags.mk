@@ -167,7 +167,9 @@ SRC_INCLUDE_PATH := \
 	compat/linux/include \
 	compat/posix/include \
 	compat/bsd/include \
-	compat/libc/include
+	compat/libc/include \
+	$(THIRDPARTY_DIR)/etl/include \
+
 
 ifdef GEN_DIST
 cppflags_src_include := $(addprefix -I$(SRCGEN_DIR)/src/,$(SRC_INCLUDE_PATH))
