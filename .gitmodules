@@ -1,3 +1,3 @@
-[submodule "third-party/third-party/etl"]
-	path = third-party/third-party/etl
+[submodule "third-party/etl"]
+	path = third-party/etl
 	url = https://github.com/ETLCPP/etl.git
